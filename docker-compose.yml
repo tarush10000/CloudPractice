@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  account-service:
+    build: ./account-service
+    ports:
+      - "8081:8081"
+  aggregator-service:
+    build: ./aggregator-service
+    ports:
+      - "8084:8084"
+  transaction-service:
+    build: ./transaction-service
+    ports:
+      - "8082:8082"
+  notification-service:
+    build: ./notification-service
+    ports:
+      - "8083:8083"
+  event-service:
+    build: ./event-service
+    ports:
+      - "8085:8085"
+  api-gateway:
+    build: ./api-gateway
+    ports:
+      - "8080:8080"
+    depends_on:
+      - account-service
+      - aggregator-service
+      - transaction-service
+      - notification-service
+      - event-service
