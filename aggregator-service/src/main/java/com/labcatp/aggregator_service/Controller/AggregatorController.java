@@ -11,7 +11,7 @@ public class AggregatorController {
 
     // Use Docker service name if PEER_ACCOUNT is set; fall back to localhost for IDE runs
     private static final String ACCOUNT_BASE =
-            System.getenv().getOrDefault("PEER_ACCOUNT", "http://localhost:8081");
+            System.getenv().getOrDefault("PEER_ACCOUNT", "http://account-service:8081");
 
     @GetMapping("/dashboard/{id}")
     public String dashboard(@PathVariable String id) {

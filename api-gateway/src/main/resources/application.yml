@@ -6,22 +6,22 @@ spring:
     gateway:
       routes:
         - id: account
-          uri: http://localhost:8081
+          uri: http://account-service:8081
           predicates: [ Path=/api/account/** ]
           filters: [ StripPrefix=1 ]
         - id: transaction
-          uri: http://localhost:8082
+          uri: http://transaction-service:8082
           predicates: [ Path=/api/tx/** ]
           filters: [ StripPrefix=1 ]
         - id: notification
-          uri: http://localhost:8083
+          uri: http://notification-service:8083
           predicates: [ Path=/api/notify/** ]
           filters: [ StripPrefix=1 ]
         - id: aggregator
-          uri: http://localhost:8084
+          uri: http://aggregator-service:8084
           predicates: [ Path=/api/agg/** ]
           filters: [ StripPrefix=1 ]
         - id: event
-          uri: http://localhost:8085
+          uri: http://event-service:8085
           predicates: [ Path=/api/event/** ]
           filters: [ StripPrefix=2 ]
